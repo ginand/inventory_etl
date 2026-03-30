@@ -1,0 +1,14 @@
+# Python
+venv/
+__pycache__/
+*.pyc
+
+# Sensitive Info (Cấm đẩy cái này lên!)
+config/service_account.json
+.env
+
+# Local Database & Logs
+airflow.db
+airflow.cfg
+logs/
+checkpoint.json
