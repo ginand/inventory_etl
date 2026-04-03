@@ -6,6 +6,7 @@ __pycache__/
 # Sensitive Info (Cấm đẩy cái này lên!)
 config/service_account.json
 .env
+ETL_SYSTEM_SUMMARY.md
 
 # Local Database & Logs
 airflow.db

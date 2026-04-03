@@ -116,6 +116,26 @@ def transform_products(df: pd.DataFrame) -> pd.DataFrame:
     if "to_order_flag" in out.columns:
         out["to_order_flag"] = out["to_order_flag"].astype(str).str.strip().str.upper()
 
+# =========================================================================
+    # 🔥 LOGIC DSS CẬP NHẬT: TÁCH SIZE VÀ COLOR THEO FORMAT "Boys M Green"
+    # =========================================================================
+    if "product_name" in out.columns:
+        # Tách chuỗi dựa trên khoảng trắng (space)
+        split_name = out["product_name"].str.split(r'\s+', expand=True)
+        
+        # Đảm bảo tách ra được ít nhất 3 thành phần: [Giới tính, Size, Màu]
+        if split_name.shape[1] >= 3:
+            # Thành phần thứ 2 (index 1) là Size (S, M, L...)
+            out["size"] = split_name[1].str.strip().str.upper()
+            
+            # Thành phần thứ 3 (index 2) là Color (Green, Orange, White...)
+            out["color"] = split_name[2].str.strip().str.title()
+        else:
+            # Fallback nếu dòng nào nhập sai cấu trúc
+            out["size"] = "Unknown"
+            out["color"] = "Unknown"
+    # =========================================================================
+
     return out.reset_index(drop=True)
 
 
