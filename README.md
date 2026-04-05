@@ -57,33 +57,32 @@ BI Tools (Power BI / Looker Studio)
 
 ---
 
-## 📈 Dashboard & Reporting
+## 📈 Dashboard & Reporting (Power BI)
 
-### MIS Reports (Management Information System)
+This project features an interactive Power BI dashboard connected directly to the PostgreSQL Data Warehouse. It bridges the gap between raw data and business strategy by dividing insights into two main modules: **MIS (Monitoring)** and **DSS (Actionable Alerts)**.
 
-1. **Sales Performance Dashboard**
-   - Filter: order_type = 'SALE'
-   - Metrics: Revenue, order count, top products by margin
+### 📊 1. MIS Reports (Management Information System)
+Provides a real-time, comprehensive view of operational flow and financial health.
 
-2. **Procurement Dashboard**
-   - Filter: order_type = 'PURCHASE'
-   - Metrics: Purchase costs, supplier spend distribution, delivery status
+* **Inventory Balance (In - Out - Balance):** Tracks starting inventory, purchase volume, sales volume, and current stock-on-hand across all categories and SKUs.
+* **Financial Reconciliation:** Automatically calculates Gross Revenue, Cost of Goods Sold (COGS), and Gross Margin (%) by dynamically joining transaction details with historical pricing data.
+* **Sales & Partner Performance:** Visualizes revenue trends and evaluates the business impact of individual wholesale partners and suppliers.
 
-3. **Partner 360 Report**
-   - Metrics: Receivables, sales volume, discounts by partner
-   - Purpose: Customer/supplier relationship management
+### 🧠 2. DSS Alerts (Decision Support System)
+Acts as the analytical "brain" of the operation, transitioning the business from manual guesswork to data-driven management.
 
-### DSS Alerts (Decision Support System)
+* **Dynamic Re-order Alert System (ROP):** Continuously monitors real-time inventory against Reorder Point thresholds. Automatically triggers a "🔴 Urgent Restock" visual flag for depleted SKUs.
+* **Deadstock & Capital Optimization:** Utilizes scatter plot clustering to analyze the correlation between sales velocity and inventory holding value. Identifies slow-moving, high-capital items to recommend targeted Flash Sale or liquidation campaigns.
 
-1. **Re-order Alert System**
-   - Highlights SKUs at Re-order Point (ROP) threshold
-   - Auto-flags products needing urgent purchase orders
+### 🛠️ Technical Implementation Highlights
+* **Data Modeling:** Optimized Star Schema with 1-to-Many relationships ensuring robust filtering across Dimension and Fact tables.
+* **DAX Engineering:** Developed advanced measures for time-intelligence reporting, financial calculations, and automated conditional formatting.
 
-2. **Cash Flow Optimization**
-   - Recommends inventory priority based on purchase price vs. retail price
-   - Optimizes working capital rotation
+<img width="1310" height="737" alt="image" src="https://github.com/user-attachments/assets/d7ddb01d-01f4-49b5-adfe-ab4a5bbaea41" />
 
----
+
+<img width="1312" height="741" alt="image" src="https://github.com/user-attachments/assets/2da10444-0e44-4449-8231-26ee15fb31f1" />
+
 
 ## 🛠️ Tech Stack
 
